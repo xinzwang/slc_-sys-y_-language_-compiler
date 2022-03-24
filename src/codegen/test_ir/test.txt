@@ -1,0 +1,19 @@
+@main>:
+push {fp,lr}
+add fp, sp, #4
+sub sp,sp,#8
+
+@main>:
+push {fp,lr}
+add fp, sp, #4
+sub sp,sp,#8
+ldr r10,[fp,#-0]
+str r10,[fp,#-0]
+ldr r10,[fp,#-4]
+ldr r9,[fp,#-4]
+add r9,r9,r10str r9,[fp,#-0]
+str r2,[fp,#-0]
+ldr r0,[fp,#-0]
+add sp, fp, #0
+pop {fp,pc}
+bx  lr

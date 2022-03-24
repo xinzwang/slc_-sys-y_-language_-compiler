@@ -1,0 +1,25 @@
+-------------------------  IR  -------------------------
+
+Global const list:
+    <const_int>  name:ca  addr:@ca  size:4  val:123
+
+Global var list:
+    <global_var_int>  name:a  addr:@a  size:4  val:1
+
+Function:  type:void  name:fun  fparams:(<type:int name:a><type:int name:b>)
+block_1:
+
+
+Function:  type:int  name:main  fparams:()
+block_1:
+    [Alloc]  dest:%a  size:4
+    [Alloc]  dest:%b  size:4
+    [Store]  dest:%b  v:0
+    [Alloc]  dest:%c  size:4
+    [Store]  dest:%c  v:0
+    [Add]  dest:%1  v1:%b  v2:%c
+    [Store]  dest:%a  v:%1
+    [Call]  dest:%2  func:fun  rparms:(<v:%b><v:%c>)
+    [GEP]  dest:%3  v:%a  inbounds:(1)  inrange:(0)
+    [Load]  dest:%4  v:%b
+    [Store]  dest:%3  v:%4
